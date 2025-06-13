@@ -24,12 +24,11 @@ jobs:
       - name: Generate HTML
         run: node generate.js
 
-      -       - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
-          publish_branch: gh-pages  # 추가!
-          user_name: GitHub Actions
-          user_email: actions@github.com
-
+          publish_branch: gh-pages
+          user_name: "GitHub Actions"
+          user_email: "actions@github.com"
