@@ -5,17 +5,18 @@ const parser = new Parser();
 const FEED_URL = "https://rss.blog.naver.com/globaltechbank.xml";
 
 (async () => {
-  const feed = await parser.parseURL(FEED_URL);
-  const items = feed.items.slice(0, 10); // 최신 10개만
+  try {
+    const feed = await parser.parseURL(FEED_URL);
+    const items = feed.items.slice(0, 10);
 
-  const htmlItems = items.map(item => `
-    <div class="item">
-      <a href="${item.link}" target="_blank">${item.title}</a><br>
-      <small>${new Date(item.pubDate).toLocaleDateString()}</small>
-    </div>
-  `).join("");
+    const htmlItems = items.map(item => `
+      <div class="item">
+        <a href="${item.link}" target="_blank">${item.title}</a><br>
+        <small>${new Date(item.pubDate).toLocaleDateString()}</small>
+      </div>
+    `).join("");
 
-  const fullHtml = `<!DOCTYPE html>
+    const fullHtml = `<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -45,5 +46,10 @@ ${htmlItems}
 </body>
 </html>`;
 
-  fs.writeFileSync("index.html", fullHtml);
+    fs.writeFileSync("index.html", fullHtml);
+    console.log("✅ index.html 생성 완료");
+  } catch (err) {
+    console.error("❌ RSS 파싱 또는 파일 생성 중 오류 발생:", err.message);
+    process.exit(1); // 워크플로에서 실패로 인식
+  }
 })();
