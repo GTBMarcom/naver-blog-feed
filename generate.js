@@ -31,10 +31,31 @@ const FEED_URL = "https://rss.blog.naver.com/globaltechbank.xml";
       background: #ffffff;
     }
     .item {
-      border: 1px solid #ddd;
+      border: 1px solid #eee; /* ✅ 더 연한 그레이 */
       padding: 10px;
-      height: 150px;
+      height: 110px;           /* ✅ 조금 더 낮은 높이 */
       overflow: hidden;
+      background-color: #fff;
     }
     .item a {
       font-weight: bold;
+      text-decoration: none;
+      color: black;           /* ✅ 링크 텍스트 블랙 */
+    }
+    .item a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+${htmlItems}
+</body>
+</html>`;
+
+    fs.writeFileSync("index.html", fullHtml);
+    console.log("✅ index.html 생성 완료");
+  } catch (err) {
+    console.error("❌ RSS 파싱 또는 파일 생성 중 오류 발생:", err.message);
+    process.exit(1);
+  }
+})();
