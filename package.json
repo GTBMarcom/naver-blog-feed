@@ -1,0 +1,15 @@
+{
+  "name": "naver-blog-feed",
+  "version": "1.0.0",
+  "description": "Fetch and generate latest posts from Naver Blog",
+  "main": "generate.js",
+  "scripts": {
+    "start": "node generate.js"
+  },
+  "dependencies": {
+    "rss-parser": "^3.12.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
