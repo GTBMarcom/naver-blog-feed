@@ -28,6 +28,7 @@ const FEED_URL = "https://rss.blog.naver.com/globaltechbank.xml";
       grid-template-columns: repeat(5, 1fr);
       gap: 10px;
       padding: 20px;
+      background: #ffffff;
     }
     .item {
       border: 1px solid #ddd;
@@ -37,19 +38,3 @@ const FEED_URL = "https://rss.blog.naver.com/globaltechbank.xml";
     }
     .item a {
       font-weight: bold;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-${htmlItems}
-</body>
-</html>`;
-
-    fs.writeFileSync("index.html", fullHtml);
-    console.log("✅ index.html 생성 완료");
-  } catch (err) {
-    console.error("❌ RSS 파싱 또는 파일 생성 중 오류 발생:", err.message);
-    process.exit(1); // 워크플로에서 실패로 인식
-  }
-})();
