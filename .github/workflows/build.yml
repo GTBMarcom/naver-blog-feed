@@ -5,6 +5,9 @@ on:
     - cron: "0 * * * *"  # 매 시간 실행
   workflow_dispatch:      # 수동 실행 허용
 
+permissions:
+  contents: write  # GitHub Pages에 푸시하기 위한 권한
+
 jobs:
   build:
     runs-on: ubuntu-latest
