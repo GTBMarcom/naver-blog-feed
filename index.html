@@ -5,25 +5,65 @@
   <title>네이버 블로그 최신 글</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      box-sizing: border-box;
     }
     .item {
-      border: 1px solid #ddd;
-      padding: 10px;
-      height: 150px;
-      overflow: hidden;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      padding: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     }
     .item a {
-      font-weight: bold;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #254597;
       text-decoration: none;
+      margin-bottom: 8px;
+    }
+    .item a:hover {
+      text-decoration: underline;
+    }
+    .item small {
+      color: #888;
+      font-size: 0.875rem;
     }
   </style>
 </head>
 <body>
-  <!-- 자동 생성될 블로그 항목 자리 -->
+
+      <div class="item">
+        <a href="https://blog.naver.com/globaltechbank/223900919580?fromRss=true&trackingCode=rss" target="_blank">지능형 로봇과 자동화로 이끄는 미래형 디지털 팩토리, LG이노텍의 드림팩토리 기사를 읽으며</a>
+        <small>6/19/2025</small>
+      </div>
+    
+      <div class="item">
+        <a href="https://blog.naver.com/globaltechbank/223898270086?fromRss=true&trackingCode=rss" target="_blank">LG전자의 휴머노이드 로봇 개발 동향과 지능형 로봇 산업의 미래</a>
+        <small>6/16/2025</small>
+      </div>
+    
+      <div class="item">
+        <a href="https://blog.naver.com/globaltechbank/223896870523?fromRss=true&trackingCode=rss" target="_blank">삼성전자의 로봇 사업 강화와 지티비아이앤씨의 전략적 대응</a>
+        <small>6/13/2025</small>
+      </div>
+    
+      <div class="item">
+        <a href="https://blog.naver.com/globaltechbank/223896691935?fromRss=true&trackingCode=rss" target="_blank">지티비아이앤씨, 엔비디아 AI로봇 기반 공정자동화 기술 트렌드 분석</a>
+        <small>6/12/2025</small>
+      </div>
+    
 </body>
 </html>
