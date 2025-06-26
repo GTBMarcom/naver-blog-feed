@@ -48,7 +48,7 @@ const FEED_URL = "https://rss.blog.naver.com/globaltechbank.xml";
     .item a {
       font-size: 1.1rem;
       font-weight: 600;
-      color: #254597;
+      color: #080b12;
       text-decoration: none;
       margin-bottom: 8px;
     }
