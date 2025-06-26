@@ -7,11 +7,11 @@ const FEED_URL = "https://rss.blog.naver.com/globaltechbank.xml";
 (async () => {
   try {
     const feed = await parser.parseURL(FEED_URL);
-    const items = feed.items.slice(0, 10);
+    const items = feed.items.slice(0, 10); // 최신 10개만 사용
 
     const htmlItems = items.map(item => `
       <div class="item">
-        <a href="${item.link}" target="_blank">${item.title}</a><br>
+        <a href="${item.link}" target="_blank">${item.title}</a>
         <small>${new Date(item.pubDate).toLocaleDateString()}</small>
       </div>
     `).join("");
@@ -23,27 +23,41 @@ const FEED_URL = "https://rss.blog.naver.com/globaltechbank.xml";
   <title>네이버 블로그 최신 글</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      padding: 20px;
-      background: #ffffff;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      box-sizing: border-box;
     }
     .item {
-      border: 1px solid #eee; /* ✅ 더 연한 그레이 */
-      padding: 10px;
-      height: 110px;           /* ✅ 조금 더 낮은 높이 */
-      overflow: hidden;
-      background-color: #fff;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      padding: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     }
     .item a {
-      font-weight: bold;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #254597;
       text-decoration: none;
-      color: black;           /* ✅ 링크 텍스트 블랙 */
+      margin-bottom: 8px;
     }
     .item a:hover {
       text-decoration: underline;
+    }
+    .item small {
+      color: #888;
+      font-size: 0.875rem;
     }
   </style>
 </head>
