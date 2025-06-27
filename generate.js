@@ -24,7 +24,7 @@ const FEED_URL = "https://rss.blog.naver.com/globaltechbank.xml";
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f5f5;
+      background: #ffffff;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
